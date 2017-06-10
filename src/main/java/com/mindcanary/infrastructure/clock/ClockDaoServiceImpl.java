@@ -82,8 +82,23 @@ public class ClockDaoServiceImpl implements ClockDaoService {
 
 	@Override
 	public void update(Clock clock) {
-		// TODO Auto-generated method stub
-
+		MapSqlParameterSource paramMap = new MapSqlParameterSource();
+		
+		paramMap.addValue("clockId", clock.getId());
+		paramMap.addValue("name", clock.getName());
+		paramMap.addValue("description", clock.getDescription());
+		paramMap.addValue("realmId", clock.getRealm().getId());
+		paramMap.addValue("countdownId", clock.getCountdown().getId());
+		
+		String sql = "UPDATE clocks \n"
+				+ "SET \n"
+				+ "name = :name, \n"
+				+ "description = :description, \n"
+				+ "realm_id = :realmId \n"
+				+ "countdown_id = :countdownId \n"
+				+ "WHERE clocks.clock_id = :clockId";
+		
+		namedParameterJdbcTemplate.update(sql, paramMap);
 	}
 
 	@Override

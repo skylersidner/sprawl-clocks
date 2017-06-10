@@ -33,8 +33,7 @@ public class ClockDomainServiceImpl implements ClockDomainService {
 
 	@Override
 	public void update(Clock clock) {
-		// TODO Auto-generated method stub
-
+		clockDaoService.update(clock);
 	}
 
 	@Override

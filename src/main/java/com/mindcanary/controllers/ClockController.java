@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,20 @@ public class ClockController {
 		Clock clock = clockDomainService.getById(clockId);
 		
 		return new ResponseEntity<Clock>(clock, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<Clock> create(@RequestBody Clock newClock) {
+		Clock clock = clockDomainService.create(newClock);
+		
+		return new ResponseEntity<Clock>(clock, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<String> update(@RequestBody Clock clock) {
+		clockDomainService.update(clock);
+		
+		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
 
 }
