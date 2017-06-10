@@ -1,7 +1,10 @@
 package com.mindcanary.domain.type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mindcanary.exceptions.EnumerationException;
 
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum RealmType {
 
 	CORPORATE(0, "Corporate"),
@@ -23,6 +26,7 @@ public enum RealmType {
 		return name;
 	}
 	
+	@JsonCreator
 	public static RealmType fromId(long id) {
 		for (RealmType type : RealmType.values()) {
 			if (type.id == id) {

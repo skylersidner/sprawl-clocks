@@ -1,7 +1,10 @@
 package com.mindcanary.domain.type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mindcanary.exceptions.EnumerationException;
 
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum CountdownType {
 
 	t1200(0, "1200"),
@@ -29,6 +32,7 @@ public enum CountdownType {
 		return value;
 	}
 	
+	@JsonCreator
 	public static CountdownType fromId(long id) {
 		for (CountdownType type : CountdownType.values()) {
 			if (type.id == id) {
