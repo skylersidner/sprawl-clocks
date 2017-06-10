@@ -44,9 +44,16 @@ public class ClockController {
 		return new ResponseEntity<Clock>(clock, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<String> update(@RequestBody Clock clock) {
+	@RequestMapping(value = "/{clockId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<String> update(@PathVariable long clockId, @RequestBody Clock clock) {
 		clockDomainService.update(clock);
+		
+		return new ResponseEntity<String>("", HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{clockId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON) 
+	public ResponseEntity<String> delete(@PathVariable long clockId) {
+		clockDomainService.delete(clockId);
 		
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}

@@ -38,8 +38,7 @@ public class ClockDomainServiceImpl implements ClockDomainService {
 
 	@Override
 	public void delete(long clockId) {
-		// TODO Auto-generated method stub
-
+		clockDaoService.delete(clockId);
 	}
 
 }

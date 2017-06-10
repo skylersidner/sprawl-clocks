@@ -25,8 +25,8 @@ public class ClockDaoServiceImpl implements ClockDaoService {
 
 	@Override
 	public Clock getById(long clockId) {
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("clockId", clockId);
+		MapSqlParameterSource paramMap = new MapSqlParameterSource();
+		paramMap.addValue("clockId", clockId);
 		
 		String sql = "SELECT * \n"
 				+ "FROM clocks \n"
@@ -45,7 +45,6 @@ public class ClockDaoServiceImpl implements ClockDaoService {
 	public List<Clock> getAll() {
 		// this method will need modification when I add users and associations
 		String sql = "SELECT * FROM clocks";
-		
 		
 		List<Clock> clocks = namedParameterJdbcTemplate.query(sql, new ClockRowMapper());
 		return clocks;
@@ -103,8 +102,14 @@ public class ClockDaoServiceImpl implements ClockDaoService {
 
 	@Override
 	public void delete(long clockId) {
-		// TODO Auto-generated method stub
-
+		MapSqlParameterSource paramMap = new MapSqlParameterSource();
+		
+		paramMap.addValue("clockId", clockId);
+		
+		String sql = "DELETE FROM clocks \n"
+				+ "WHERE clocks.clock_id = :clockId";
+		
+		namedParameterJdbcTemplate.update(sql, paramMap);
 	}
 
 }
