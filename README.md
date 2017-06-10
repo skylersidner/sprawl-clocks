@@ -1,5 +1,5 @@
 # Sprawl Clocks Project
-Built off of my friend's base java app for Heroku (check him out: https://github.com/liester). The front end for this project is here.
+Built off of my friend's base java app for Heroku (check him out: https://github.com/liester). The front end for this project is [here](https://github.com/skylersidner/sprawl-clocks-front).
 
 When playing *[The Sprawl](https://www.kickstarter.com/projects/ardensludere/the-sprawl-cyberpunk-roleplaying-powered-by-the-ap)* I realized I wanted a better way to display the current status of each clock, to be more aware of what kinds of threats our team was up against and how bad things were getting.
 
