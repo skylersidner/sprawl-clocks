@@ -7,6 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,12 +21,19 @@ public class ClockController {
 	
 	@Inject
 	ClockDomainService clockDomainService;
-	
+
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<List<Clock>> getAllClocks() {
-		List<Clock>  clocks = clockDomainService.getAll();
+		List<Clock> clocks = clockDomainService.getAll();
 		
 		return new ResponseEntity<List<Clock>>(clocks, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/{clockId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<Clock> getById(@PathVariable long clockId) {
+		Clock clock = clockDomainService.getById(clockId);
+		
+		return new ResponseEntity<Clock>(clock, HttpStatus.OK);
 	}
 
 }

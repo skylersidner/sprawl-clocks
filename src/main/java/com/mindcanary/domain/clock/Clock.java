@@ -5,11 +5,20 @@ import com.mindcanary.domain.type.CountdownType;
 
 public class Clock {
 
+	private long id;
 	private RealmType realm;
 	private String name;
 	private CountdownType countdown;
 	private String description;
 	
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public RealmType getRealm() {
 		return realm;

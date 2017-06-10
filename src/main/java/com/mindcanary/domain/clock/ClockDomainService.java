@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ClockDomainService {
 	
-	public Clock getById(long id);
+	public Clock getById(long clockId);
 	
 	public List<Clock> getAll();
 	

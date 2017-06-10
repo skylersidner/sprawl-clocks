@@ -6,7 +6,7 @@ import com.mindcanary.domain.clock.Clock;
 
 public interface ClockDaoService {
 	
-	public Clock getById(long id);
+	public Clock getById(long clockId);
 	
 	public List<Clock> getAll();
 	

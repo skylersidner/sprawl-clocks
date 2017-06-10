@@ -14,9 +14,9 @@ public class ClockDomainServiceImpl implements ClockDomainService {
 	ClockDaoService clockDaoService;
 
 	@Override
-	public Clock getById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Clock getById(long clockId) {
+		Clock clock = clockDaoService.getById(clockId);
+		return clock;
 	}
 
 	@Override
@@ -27,8 +27,8 @@ public class ClockDomainServiceImpl implements ClockDomainService {
 
 	@Override
 	public Clock create(Clock newClock) {
-		// TODO Auto-generated method stub
-		return null;
+		Clock clock = clockDaoService.create(newClock);
+		return clock;
 	}
 
 	@Override
