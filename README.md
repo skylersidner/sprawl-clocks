@@ -1,5 +1,5 @@
 # HerokuPostgresBaseProject
-Java template for Heroku created by friend [Levi](https://github.com/liester)
+Java template for Heroku created by my friend [Levi](https://github.com/liester)
 
 To try it out:
 
